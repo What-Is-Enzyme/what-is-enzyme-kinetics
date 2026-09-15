@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+dynamic = ["version"]
+name = "rxnrater"
+requires-python = ">=3.10"
+description = "steady-state rate equations for enzyme-catalyzed reactions."
+readme = "README.md"
+license = {text = "BSD 3-clause"}
+dependencies = [
+    "sympy",
+]
+authors = [
+  {name = "Daniel Weindl", email = "sci@danielweindl.de"},
+]
+maintainers = [
+  {name = "Daniel Weindl", email = "sci@danielweindl.de"},
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "hatch",
+    "tox",
+    "pre-commit",
+]
+[tool.hatch.version]
+path = "rxnrater/__init__.py"
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+    "rxnrater",
+]
+addopts = [
+    "-v",
+    "--durations=0",
+    "--durations-min=5"
+]
